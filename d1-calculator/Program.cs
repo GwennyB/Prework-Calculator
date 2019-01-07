@@ -10,6 +10,7 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+            // run Manager until user exits
             bool moreCalcs = true;
             while (moreCalcs)
             {
@@ -64,15 +65,15 @@ namespace ConsoleApp2
             }
 
             Console.ReadLine(); // keep console open until user exits
-            return true;
+            return true; // user hasn't chosen 'exit' - run again
 
         }
 
         // validate user's inputs
         private static double ValidateNum(string input) // numeric inputs
         {
-            double validInput = 0;
-            bool valid = false;
+            double validInput = 0; // set return variable
+            bool valid = false; // set validation loop condition
 
             while (!valid)
             {
@@ -92,6 +93,7 @@ namespace ConsoleApp2
 
         private static string ValidateOperation(string input) // numeric inputs
         {
+            // loop for invalid inputs
             while (input != "add" && input != "subtract" && input != "multiply" && input != "divide" && input != "exit")
             {
                 Console.WriteLine("Invalid input. Try again.");
@@ -99,12 +101,13 @@ namespace ConsoleApp2
             }
             if(input == "exit")
             {
-                System.Environment.Exit(0);
+                System.Environment.Exit(0); // exit at user's command
             }
-            return input;
+            else
+            {
+                return input; // continue to calculate
+            }
         }
-
-
 
 
         // operation functions - pass in both operands to selected operation, return answer for display
