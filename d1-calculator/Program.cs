@@ -10,6 +10,16 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+            bool moreCalcs = true;
+            while (moreCalcs)
+            {
+                moreCalcs = Manager();
+            }
+
+        }
+
+        static bool Manager()
+        {
             // get inputs from user
             Console.Clear();
             Console.WriteLine("Please enter first operand:");
@@ -47,9 +57,9 @@ namespace ConsoleApp2
             }
 
             Console.ReadLine(); // keep console open until user exits
+            return true;
 
         }
-
 
         // operation functions - pass in both operands to selected operation, return answer for display
 
