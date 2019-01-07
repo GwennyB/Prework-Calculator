@@ -23,12 +23,12 @@ namespace ConsoleApp2
             // get inputs from user
             Console.Clear();
             Console.WriteLine("Please enter first operand:");
-            double num1 = Double.Parse(Console.ReadLine()); // parse input to double and save to new variable 'num1'
+            double num1 = ValidateNum(Console.ReadLine()); // collect input, validate, save to new variable 'num1'
             Console.WriteLine("Please enter second operand:");
-            double num2 = Double.Parse(Console.ReadLine()); // parse input to double and save to new variable 'num2'
-            Console.WriteLine("What would you like to do with them?");
+            double num2 = ValidateNum(Console.ReadLine()); // collect input, validate, save to new variable 'num1'
+            Console.WriteLine("\nWhat would you like to do with these numbers?");
             Console.WriteLine("(Enter 'add', 'subtract', 'multiply', or 'divide'.)");
-            string operation = Console.ReadLine(); // save input to new variable 'operation'
+            string operation = ValidateOperation(Console.ReadLine()); // save input to new variable 'operation'
 
             // set answer variable
             double answer = 0;
@@ -49,8 +49,14 @@ namespace ConsoleApp2
                     Console.WriteLine($"The product of {num1} & {num2} is {answer}.");
                     break;
                 case "divide": // Route to Divide function
-                    answer = Divide(num1, num2);
-                    Console.WriteLine($"The quotient of {num1} & {num2} is {answer}.");
+                    if (num2 == 0)
+                    {
+                        Console.WriteLine("Can't divide by 0.");
+                    } else
+                    {
+                        answer = Divide(num1, num2);
+                        Console.WriteLine($"The quotient of {num1} & {num2} is {answer}.");
+                    }
                     break;
                 default:
                     break;
@@ -60,6 +66,41 @@ namespace ConsoleApp2
             return true;
 
         }
+
+        // validate user's inputs
+        private static double ValidateNum(string input) // numeric inputs
+        {
+            double validInput = 0;
+            bool valid = false;
+
+            while (!valid)
+            {
+                try
+                {
+                    validInput = Double.Parse(input); // parse input to double and save to new variable 'num1'
+                    valid = true;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input. Try again.");
+                    input = Console.ReadLine();
+                }
+            }
+            return validInput;
+        }
+
+        private static string ValidateOperation(string input) // numeric inputs
+        {
+            while (input != "add" && input != "subtract" && input != "multiply" && input != "divide")
+            {
+                Console.WriteLine("Invalid input. Try again.");
+                input = Console.ReadLine();
+            }
+            return input;
+        }
+
+
+
 
         // operation functions - pass in both operands to selected operation, return answer for display
 
