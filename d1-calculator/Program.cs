@@ -10,42 +10,45 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            bool moreCalcs = true;
-            while (moreCalcs)
+            while (true)
             {
-                moreCalcs = Manager();
+                Manager();
             }
-
         }
 
-        static bool Manager()
+        static void Manager()
         {
             // get inputs from user
             Console.Clear();
+            double answer = 0;
+            double num1 = 0;
+            double num2 = 0; ;
             Console.WriteLine("(Enter 'add', 'subtract', 'multiply', 'divide', or 'exit'.)");
             string operation = ValidateOperation(Console.ReadLine()); // save input to new variable 'operation'
-            Console.WriteLine("Please enter first operand:");
-            double num1 = ValidateNum(Console.ReadLine()); // collect input, validate, save to new variable 'num1'
-            Console.WriteLine("Please enter second operand:");
-            double num2 = ValidateNum(Console.ReadLine()); // collect input, validate, save to new variable 'num1'
+            if (operation != "exit")
+            {
+                Console.WriteLine("Please enter first operand:");
+                num1 = ValidateNum(Console.ReadLine()); // collect input, validate, save to new variable 'num1'
+                Console.WriteLine("Please enter second operand:");
+                num2 = ValidateNum(Console.ReadLine()); // collect input, validate, save to new variable 'num1'
 
-            // set answer variable
-            double answer;
+                // set answer variable
+            }
 
             // route to appropriate operation function
             switch (operation)
             {
                 case "add": // Route to Add function
                     answer = Add(num1, num2);
-                    Console.WriteLine($"The sum of {num1} & {num2} is {answer}. (More? Press 'enter'.)");
+                    Console.WriteLine($"The sum of {num1} & {num2} is {answer}. (Press 'enter' to continue.)");
                     break;
                 case "subtract": // Route to Subtract function
                     answer = Subtract(num1, num2);
-                    Console.WriteLine($"The difference of {num1} & {num2} is {answer}. (More? Press 'enter'.)");
+                    Console.WriteLine($"The difference of {num1} & {num2} is {answer}. (Press 'enter' to continue.)");
                     break;
                 case "multiply": // Route to Multiply function
                     answer = Multiply(num1, num2);
-                    Console.WriteLine($"The product of {num1} & {num2} is {answer}. (More? Press 'enter'.)");
+                    Console.WriteLine($"The product of {num1} & {num2} is {answer}. (Press 'enter' to continue.)");
                     break;
 
                 case "divide": // Route to Divide function
@@ -56,7 +59,7 @@ namespace ConsoleApp2
                     else
                     {
                         answer = Divide(num1, num2);
-                        Console.WriteLine($"The quotient of {num1} & {num2} is {answer}. (More? Press 'enter'.)");
+                        Console.WriteLine($"The quotient of {num1} & {num2} is {answer}. (Press 'enter' to continue.)");
                     }
                     break;
                 default:
@@ -64,7 +67,6 @@ namespace ConsoleApp2
             }
 
             Console.ReadLine(); // keep console open until user exits
-            return true;
 
         }
 
