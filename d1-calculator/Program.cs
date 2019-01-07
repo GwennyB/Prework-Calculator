@@ -22,40 +22,41 @@ namespace ConsoleApp2
         {
             // get inputs from user
             Console.Clear();
+            Console.WriteLine("(Enter 'add', 'subtract', 'multiply', 'divide', or 'exit'.)");
+            string operation = ValidateOperation(Console.ReadLine()); // save input to new variable 'operation'
             Console.WriteLine("Please enter first operand:");
             double num1 = ValidateNum(Console.ReadLine()); // collect input, validate, save to new variable 'num1'
             Console.WriteLine("Please enter second operand:");
             double num2 = ValidateNum(Console.ReadLine()); // collect input, validate, save to new variable 'num1'
-            Console.WriteLine("\nWhat would you like to do with these numbers?");
-            Console.WriteLine("(Enter 'add', 'subtract', 'multiply', or 'divide'.)");
-            string operation = ValidateOperation(Console.ReadLine()); // save input to new variable 'operation'
 
             // set answer variable
-            double answer = 0;
+            double answer;
 
             // route to appropriate operation function
             switch (operation)
             {
                 case "add": // Route to Add function
                     answer = Add(num1, num2);
-                    Console.WriteLine($"The sum of {num1} & {num2} is {answer}.");
+                    Console.WriteLine($"The sum of {num1} & {num2} is {answer}. (More? Press 'enter'.)");
                     break;
                 case "subtract": // Route to Subtract function
                     answer = Subtract(num1, num2);
-                    Console.WriteLine($"The difference of {num1} & {num2} is {answer}.");
+                    Console.WriteLine($"The difference of {num1} & {num2} is {answer}. (More? Press 'enter'.)");
                     break;
                 case "multiply": // Route to Multiply function
                     answer = Multiply(num1, num2);
-                    Console.WriteLine($"The product of {num1} & {num2} is {answer}.");
+                    Console.WriteLine($"The product of {num1} & {num2} is {answer}. (More? Press 'enter'.)");
                     break;
+
                 case "divide": // Route to Divide function
                     if (num2 == 0)
                     {
                         Console.WriteLine("Can't divide by 0.");
-                    } else
+                    }
+                    else
                     {
                         answer = Divide(num1, num2);
-                        Console.WriteLine($"The quotient of {num1} & {num2} is {answer}.");
+                        Console.WriteLine($"The quotient of {num1} & {num2} is {answer}. (More? Press 'enter'.)");
                     }
                     break;
                 default:
@@ -91,10 +92,14 @@ namespace ConsoleApp2
 
         private static string ValidateOperation(string input) // numeric inputs
         {
-            while (input != "add" && input != "subtract" && input != "multiply" && input != "divide")
+            while (input != "add" && input != "subtract" && input != "multiply" && input != "divide" && input != "exit")
             {
                 Console.WriteLine("Invalid input. Try again.");
                 input = Console.ReadLine();
+            }
+            if(input == "exit")
+            {
+                System.Environment.Exit(0);
             }
             return input;
         }
