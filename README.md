@@ -19,14 +19,21 @@ Output to the console the answer to the proposed math problem.
 
 
 # ARCHITECTURE:
-Main function
-  - collects operands from user and stores as doubles
-  - collects desired operation from user and stores as string
+Main
+ - keeps 'Manager' running until user exits
+Manager
+  - collects desired operation from user, routes for validation, and stores as string
+  - collects operands from user, routes them to input validation function, stores returns as doubles
   - routes operands to correct operation function (via switch)
   - displays results to user on console
   - exits program after single run
+  
+ValidateNum, ValidateOperation
+  - validates user inputs
+  - prompts for corrections when appropriate
+  - returns validate inputs
 
-Add, Subtract, Multiply, Divide functions
+Add, Subtract, Multiply, Divide
   - accepts 2 operands (type: double) and returns the sum, difference, product, or quotient (respectively) as double
 
 
