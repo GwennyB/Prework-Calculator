@@ -106,10 +106,8 @@ namespace ConsoleApp2
             {
                 System.Environment.Exit(0); // exit at user's command
             }
-            else
-            {
-                return input; // continue to calculate
-            }
+
+            return input; // continue to calculate
         }
 
 
