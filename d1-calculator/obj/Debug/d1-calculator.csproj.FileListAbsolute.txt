@@ -1,0 +1,7 @@
+C:\Users\gyzub\codefellows\401\labs\d1-calculator\d1-calculator\obj\Debug\d1-calculator.csprojAssemblyReference.cache
+C:\Users\gyzub\codefellows\401\labs\d1-calculator\d1-calculator\obj\Debug\d1-calculator.csproj.CoreCompileInputs.cache
+C:\Users\gyzub\codefellows\401\labs\d1-calculator\d1-calculator\bin\Debug\d1-calculator.exe.config
+C:\Users\gyzub\codefellows\401\labs\d1-calculator\d1-calculator\bin\Debug\d1-calculator.exe
+C:\Users\gyzub\codefellows\401\labs\d1-calculator\d1-calculator\bin\Debug\d1-calculator.pdb
+C:\Users\gyzub\codefellows\401\labs\d1-calculator\d1-calculator\obj\Debug\d1-calculator.exe
+C:\Users\gyzub\codefellows\401\labs\d1-calculator\d1-calculator\obj\Debug\d1-calculator.pdb

@@ -20,38 +20,47 @@ namespace ConsoleApp2
             Console.WriteLine("(Enter 'add', 'subtract', 'multiply', or 'divide'.)");
             string operation = Console.ReadLine();
 
+            double answer = 0;
+
             switch (operation)
             {
                 case "add":
+                    answer = Add(num1, num2);
                     break;
                 case "subtract":
+                    answer = Subtract(num1, num2);
                     break;
                 case "multiply":
+                    answer = Multiply(num1, num2);
                     break;
                 case "divide":
+                    answer = Divide(num1, num2);
                     break;
                 default:
                     break;
             }
 
+            Console.WriteLine($"If you {operation} the numbers {num1} & {num2}, you get {answer}.");
+            Console.ReadLine();
+
         }
 
         private static double Add(double num1, double num2)
         {
-
+            return (num1 + num2);
         }
 
         private static double Subtract(double num1, double num2)
         {
-
+            return (num1 - num2);
         }
         private static double Multiply(double num1, double num2)
         {
-
+            return (num1 * num2);
         }
         private static double Divide(double num1, double num2)
         {
-
+            return (num1 / num2);
         }
     }
 }
